@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description" content="A simple test page to review and demonstrate a basic HTML5 page"/>
+	<meta name="keywords" content="hmtl5, html5 review, ciu, faculty of engineering, cmpe483"/>
+	<meta name="robots" content="index,follow"/>
+
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-store" />
+	<meta http-equiv="expires" content="-1" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
+
+
+	<base href="cgpa"/>
+	<script src="cgpacalculator.js"></script>
+	<link rel="stylesheet" type="text/css" href="grades.css"/>
+	<link rel="icon" href="ciulogo.ico"/>
+
+	<title>CGPA Calculator</title>
+</head>
+
+<body>
+
+<div id="main">
+
+<h1> CMPE483 - Internet Programming II</h1>
+
+<h2> Fall 2019-2020 </h2>
+<h2> Assignment 1 - CGPA Calculator </h2>
+<h3> Objective : To practice web page design & client side scripting using only HTML, CSS and JavaScript </h3>
+<h4> Assoc. Prof. Dr. Tamer TULGAR </h4>
+
+<hr>
+
+<p>
+In this assignment the duty to fulfill is to design a web page which will accept course info from the user and show all of the entered courses in a table. At the end of the table the current cgpa calculation should be shown.
+<br>
+The course entry, dynamic table generation and the cgpa calculation should be triggered by a button click.
+<br>
+Students should pay attention and experience that the HTTP is a stateless protocol. Hence, navigation away from the page should be blocked.
+<br>
+Also, the entered data will be continuously used in a calculation. Therefore, the data should not only be displayd as a table row but also should be stored in a array.
+</p>
+
+<hr>
+
+
+<table> 
+	<tbody>
+    <tr>
+	<td>
+		<br>		
+		<form name="cgpa_calc" id="form1">
+			<script type="text/javascript">
+				var ccodes = [];
+				var cnames = [];
+				var credits = [];
+				var grades = [];
+				var letters = [];
+			</script>
+
+			<fieldset style="width:350px; border-radius:20px; border-width:4px; border-color:#0066cc;">
+				<legend id="fieldlabel">CGPA Calculator</legend>
+				
+				<label for="ccdode">Course Code</label><br>
+				<input type="text" name="ccode"><br><br>
+				
+				<label for="cname">Course Name</label><br>  
+				<input type="text" name="cname"><br><br>
+			  
+				
+				<label class="radios">4 Credits
+				<input type = "radio" name = "credits" value = "4" checked="checked"/>
+				<span class="checkmark"></span>
+				</label>
+				
+				<label class="radios">3 Credits
+				<input type = "radio" name = "credits" value = "3"/>
+				<span class="checkmark"></span>
+				</label>
+				
+				<label class="radios">2 Credits
+				<input type = "radio" name = "credits" value = "2"/>
+				<span class="checkmark"></span>
+				</label>
+				
+				<label class="radios">1 Credit
+				<input type = "radio" name = "credits" value = "1"/>
+				<span class="checkmark"></span>
+				</label>
+			  
+				<br>
+				<label for="grade">Your Letter Grade</label><br>
+				<select id="grade" name="lgrade">	
+				<option value="4">A</option>
+				<option value="3.7">A-</option>
+				<option value="3.3">B+</option>
+				<option value="3">B</option>
+				<option value="2.7">B-</option>
+				<option value="2.3">C+</option>
+				<option value="2">C</option>
+				<option value="1.7">C-</option>
+				<option value="1.3">D+</option>
+				<option value="1">D</option>
+				<option value="0.7">D-</option>
+				<option value="0">F</option>
+				<option value="-1">NA</option>    
+			</select>
+
+			<br><br>  
+
+			<input type="submit" class="button" value="Add Course" onclick="fetchvalues('form1'); return false;">
+
+			</fieldset>
+ 		</form>
+	</td>
+	
+	<td style="padding-left:100px">		
+		<div id="coursestable">
+		</div>
+		
+		<p id ='p1'> 
+		</p>
+	</td>
+	
+	</tr>
+	</tbody>
+</table> 
+
+   
+</div>  
+</body>
+
+</html>
